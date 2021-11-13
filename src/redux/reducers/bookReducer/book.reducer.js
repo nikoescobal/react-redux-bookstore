@@ -2,10 +2,12 @@
 /* eslint-disable */
 
 import * as types from "./bookTypes";
+import { v4 as uuidv4 } from 'uuid';
+
 
 const initialState = [
   {
-    id: 1,
+    id: uuidv4(),
     genre: "Romance",
     title: "Mike the BBC Reporter",
     author: "Michael Garyssan",
@@ -13,7 +15,7 @@ const initialState = [
     chapter: "Chapter 17",
   },
   {
-    id: 2,
+    id: uuidv4(),
     genre: "Fiction",
     title: "The Alchemist",
     author: "Paulo Coelho",

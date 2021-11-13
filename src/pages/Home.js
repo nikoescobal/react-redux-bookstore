@@ -2,6 +2,7 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import BookList from '../components/BookList';
 import { addBook } from '../redux/reducers/bookReducer/bookActions';
 
@@ -12,7 +13,7 @@ function Home() {
     e.preventDefault();
     dispatch(
       addBook({
-        id: 7,
+        id: uuidv4(),
         genre: 'Romance',
         title: value,
         author: 'Michael Garyssan',
