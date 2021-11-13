@@ -1,12 +1,17 @@
 import React from 'react';
-import '../Container';
+import { Link } from 'react-router-dom';
+import '../App';
 
 const Nav = () => (
   <div className="flex bg-gray-50 px-16 py-12 items-center align-middle justify-between font-nunito">
     <div className="flex space-x-10 justify-between items-center align-middle">
       <h1 className="font-bold text-blue-600 text-3xl">Bookstore CMS</h1>
-      <h2 className="uppercase text-gray-500">Books</h2>
-      <h2 className="uppercase text-gray-500">Categories</h2>
+      <h2 className="uppercase text-gray-500">
+        <Link to="/">Books</Link>
+      </h2>
+      <h2 className="uppercase text-gray-500">
+        <Link to="/categories">Caetegories</Link>
+      </h2>
     </div>
 
     <svg
