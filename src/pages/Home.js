@@ -5,21 +5,18 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import BookList from "../components/BookList";
-import { addBook } from "../redux/reducers/bookReducer/bookActions";
+import { addBookToServer } from "../redux/reducers/bookReducer/bookActions";
+import { addBookToRedux } from "../redux/reducers/bookReducer/bookActions";
 
 function Home() {
   const dispatch = useDispatch();
   const [book, setBook] = React.useState({
-    genre: "",
+    category: "",
     title: "",
-    author: "",
-    completed: "",
-    chapter: "",
+    // author: "",
+    // completed: "",
+    // chapter: "",
   });
-  // const [title, setTitle] = React.useState('');
-  // const [author, setAuthor] = React.useState('');
-  // const [completed, setCompleted] = React.useState('');
-  // const [chapter, setChapter] = React.useState('');
 
   const updateObj = (e) => {
     e.preventDefault(),
@@ -32,21 +29,25 @@ function Home() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
-      addBook({
-        id: uuidv4(),
-        genre: book.genre,
-        title: book.title,
-        author: book.author,
-        completed: book.completed,
-        chapter: book.chapters,
-      })
+      addBookToServer(
+        "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/6XuNa1i2ihDpsbnaynQL/books",
+        {
+          itemId: uuidv4(),
+          category: book.category,
+          title: book.title,
+          // author: book.author,
+          // completed: book.completed,
+          // chapter: book.chapters,
+        }
+      )
     );
+
     setBook({
-      genre: "",
+      category: "",
       title: "",
-      author: "",
-      completed: "",
-      chapter: "",
+      // author: "",
+      // completed: "",
+      // chapter: "",
     });
   };
 
@@ -54,11 +55,11 @@ function Home() {
     <div>
       <BookList />
       <form onSubmit={(e) => handleSubmit(e)}>
-        <input value={book.genre} name='genre' onChange={updateObj} />
+        <input value={book.category} name='category' onChange={updateObj} />
         <input value={book.title} name='title' onChange={updateObj} />
-        <input value={book.author} name='author' onChange={updateObj} />
-        <input value={book.completed} name='completed' onChange={updateObj} />
-        <input value={book.chapter} name='chapter' onChange={updateObj} />
+        {/* <input value={book.author} name='author' onChange={updateObj} /> */}
+        {/* <input value={book.completed} name='completed' onChange={updateObj} />
+        <input value={book.chapter} name='chapter' onChange={updateObj} /> */}
 
         <button type='submit'>Add</button>
       </form>
