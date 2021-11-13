@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import './Container.css';
+import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Categories from './pages/Categories';
@@ -14,8 +14,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
-
-        {/* <Route exact path="/categories" component={Container} /> */}
       </Routes>
     </div>
   );

@@ -2,7 +2,7 @@ const initialState = {
   books: [
     {
       genre: 'Romance',
-      title: 'Mikes bbc love story',
+      title: 'Mike the BBC Reporter',
       author: 'Michael Garyssan',
       completed: 64,
       chapter: 'Chapter 17',
