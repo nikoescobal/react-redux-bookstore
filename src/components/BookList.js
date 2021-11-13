@@ -7,6 +7,7 @@ import Book from "./Book";
 
 function BookList() {
   const books = useSelector((state) => state.books);
-  return books.map(({ id, ...bookProps }) => <Book key={id} {...bookProps} />);
+  console.log(books);
+  return books.map(({ id, ...bookProps }) => <Book key={id} id={id} {...bookProps} />);
 }
 export default BookList;

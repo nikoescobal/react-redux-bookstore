@@ -1,9 +1,12 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addBook, removeBook } from '../redux/reducers/bookReducer/bookActions';
 
 function Book({
-  genre, title, author, completed, chapter,
+  id, genre, title, author, completed, chapter,
 }) {
+  const dispatch = useDispatch();
   return (
     <div>
       <div>{genre}</div>
@@ -11,11 +14,18 @@ function Book({
       <div>{author}</div>
       <div>{completed}</div>
       <div>{chapter}</div>
+      <button onClick={() => dispatch(addBook)} type="button">
+        Add
+      </button>
+      <button onClick={() => dispatch(removeBook(id))} type="button">
+        Delete
+      </button>
     </div>
   );
 }
 
 Book.propTypes = {
+  id: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
