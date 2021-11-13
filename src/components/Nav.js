@@ -10,7 +10,7 @@ const Nav = () => (
         <Link to="/">Books</Link>
       </h2>
       <h2 className="uppercase text-gray-500">
-        <Link to="/categories">Caetegories</Link>
+        <Link to="/categories">Categories</Link>
       </h2>
     </div>
 
