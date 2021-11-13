@@ -1,13 +1,20 @@
+/* eslint-disable import/no-cycle */
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Categories from './pages/Categories';
+import Nav from './components/Nav';
+import './index';
 
 function App() {
   return (
     // eslint-disable-next-line react/jsx-no-duplicate-props
-    <div className="App" className="p-6 items-center justify-center">
-      <h1 className="text-blue-400 font-extrabold"> Hello World! </h1>
-      {' '}
-      <p className="tracking-widest"> This is my first React App. </p>
-      {' '}
+    <div className="Container">
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/categories" element={<Categories />} />
+      </Routes>
     </div>
   );
 }
