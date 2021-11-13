@@ -25,7 +25,7 @@ const initialState = [
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_BOOK:
-      return { ...state, ...action.payload };
+      return [ ...state, action.payload];
     case types.REMOVE_BOOK:
       return [...state.filter((el) => el.id !== action.id)];
 
